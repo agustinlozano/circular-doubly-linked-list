@@ -5,7 +5,7 @@ int main(void) {
     Node *tailCat = NULL;
 
     printf("Circular doubly linked list\n\n");
-    ejecutarMenu(headCat, tailCat);
+    runMenu(headCat, tailCat);
 
     return EXIT_SUCCESS;
 }
