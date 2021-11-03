@@ -52,3 +52,62 @@ void deleteNode(Node **head, Node **tail) {
         printf("\n\tLa lista esta vacia\n\n");
     }
 }
+
+void deleteObject(Node *head) {
+    int ID;
+
+    if (head != NULL) {
+        Obj *currentObj = head -> obj;
+        Obj *aux = NULL;
+
+        printf("\nIngrese el ID del objeto ligado a %s: ", head->content);
+        scanf(" %d", &ID);
+
+        while ((currentObj->ID) != ID) {
+            currentObj = currentObj -> next;
+        }
+
+        printf("\nCurrent object es: %s\tID: %d\n\n", 
+            currentObj->content, currentObj->ID);
+
+        if (currentObj == head -> obj) {
+            //elimino el nodo y pero tambien tengo que apuntarlo desde la categoria
+            aux = currentObj -> prev;
+            aux -> next = currentObj -> next;
+
+            aux = currentObj -> next;
+            aux -> prev = currentObj -> prev;
+
+            head -> obj = aux;
+
+            //Ahora actualizo los ID de los objetos
+            updateID(currentObj->prev, aux);
+
+            free(currentObj);
+
+        } else {
+            //simplemente borro el nodo
+            aux = currentObj -> prev;
+            aux -> next = currentObj -> next;
+
+            aux = currentObj -> next;
+            aux -> prev = currentObj -> prev;
+
+            //Ahora actualizo los ID de los objetos
+            updateID(currentObj->prev, aux);
+
+            free(currentObj);
+        }
+
+    } else {
+        printf("\n\tLa lista esta vacia\n\n");
+    }
+}
+
+void updateID(Obj *tail, Obj *current) {
+    do {
+        int currentID = current -> ID;
+        current -> ID = currentID - 1;
+        current = current -> next;
+    } while (current != tail);  
+}
