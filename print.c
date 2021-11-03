@@ -5,7 +5,7 @@ void printList(Node *headCat) {
     
     if (current != NULL) {
         do {
-            if(current == headCat) {
+            if (current == headCat) {
                 printf("\n\t*%s", current->content);
             } else {
                 printf("\n\t%s", current->content);
@@ -14,7 +14,7 @@ void printList(Node *headCat) {
             Obj *headObj = current->obj;
             Obj *currentObject = headObj;
 
-            if(currentObject != NULL){
+            if (currentObject != NULL) {
                 int count = 0;
                 do {
                     printf("\n%d: %s, \tID: %d", count, currentObject->content, currentObject->ID);
