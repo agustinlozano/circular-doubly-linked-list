@@ -10,6 +10,7 @@ void runMenu(Node *headC, Node *tailC) {
         printf("4. Mostrar categorias\n");
 		printf("5. Siguiente categoria\n");
 		printf("6. Anterior categoria\n");
+		printf("7. Eliminar objeto de la categoria actual\n");
         printf("0. Salir\n");
 		printf("\nSu opcion: ");
 		scanf(" %d", &choice);
@@ -38,6 +39,10 @@ void runMenu(Node *headC, Node *tailC) {
 			case 6:
 				printf("\n\n- Categoria anterior\n");
 				prevCategory(&headC, &tailC);
+				break;
+			case 7:
+				printf("\n\n- Borrar objeto de la categoria actual\n");
+				deleteObject(headC);
 				break;
 			case 0:
 				printf("\n\n- El programa ha finalizado.\n");
