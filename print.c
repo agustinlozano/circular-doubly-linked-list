@@ -11,13 +11,13 @@ void printList(Node *headCat) {
                 printf("\n\t%s", current->content);
             }
             
-            Obj *headObj = headCat->obj;
+            Obj *headObj = current->obj;
             Obj *currentObject = headObj;
 
             if(currentObject != NULL){
                 int count = 0;
                 do {
-                    printf("\n%d: %s\tID: %d", count, currentObject->content, currentObject->ID);
+                    printf("\n%d: %s, \tID: %d", count, currentObject->content, currentObject->ID);
                     
                     currentObject = currentObject -> next;
                     count++;
