@@ -4,12 +4,12 @@ void runMenu(Node *headC, Node *tailC) {
     int choice;
 
 	do {
-		printf("1. Insertar categoria\n");
-        printf("2. Eliminar categoria\n");
-		printf("3. Insertar objeto\n");
-        printf("4. Mostrar categorias\n");
-		printf("5. Siguiente categoria\n");
-		printf("6. Anterior categoria\n");
+		printf("1. Insertar nueva categoria\n");
+        printf("2. Eliminar categoria actual\n");
+		printf("3. Insertar nuevo objeto a categoria actal\n");
+        printf("4. Mostrar categorias y objetos\n");
+		printf("5. Ir a siguiente categoria\n");
+		printf("6. Ir a categoria anterior\n");
 		printf("7. Eliminar objeto de la categoria actual\n");
         printf("0. Salir\n");
 		printf("\nSu opcion: ");
@@ -26,7 +26,7 @@ void runMenu(Node *headC, Node *tailC) {
 				break;
 			case 3:
                 printf("\n\n- Insertar objeto\n");
-				addObject(headC, tailC);
+				addObject(headC);
 				break;
 			case 4:
 				printf("\n\n- Mostrar categorias\n");
