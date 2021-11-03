@@ -26,7 +26,9 @@ void addObject(Node *headC, Node *tailC);
 void newObject(Node *currentCat);
 
 void printList(Node *head);
+void deleteObject(Node *head);
 void deleteNode(Node **head, Node **tail);
+void updateID(Obj *tail, Obj *current);
 
 void nextCategory(Node **head, Node **tail);
 void prevCategory(Node **head, Node **tail);
