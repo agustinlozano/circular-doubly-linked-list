@@ -11,7 +11,7 @@ void printList(Node *headCat) {
                 printf("\n\t%s", current->content);
             }
             
-            Obj *headObj = current->obj;
+            Obj *headObj = headCat->obj;
             Obj *currentObject = headObj;
 
             if(currentObject != NULL){
