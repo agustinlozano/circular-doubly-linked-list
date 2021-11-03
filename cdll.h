@@ -19,18 +19,19 @@ typedef struct node {
     struct node *prev;
 } Node;
 
+/* funciones de interes */
 void runMenu(Node *headC, Node *tailC);
-
 void addNode(Node **head, Node **tail);
+void nextCategory(Node **head, Node **tail);
+void prevCategory(Node **head, Node **tail);
+void printList(Node *head);
+
 void addObject(Node *headC, Node *tailC);
 void newObject(Node *currentCat);
 
-void printList(Node *head);
 void deleteObject(Node *head);
 void deleteNode(Node **head, Node **tail);
 void updateID(Obj *tail, Obj *current);
 
-void nextCategory(Node **head, Node **tail);
-void prevCategory(Node **head, Node **tail);
 
 #endif
