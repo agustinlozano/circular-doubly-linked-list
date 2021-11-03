@@ -5,10 +5,10 @@ void printList(Node *headCat) {
     
     if (current != NULL) {
         do {
-            printf("\n\t%s", current->content);            //mostrar categoria
+            printf("\n\t%s", current->content);
             
             Obj *headObj = current->obj;
-            Obj *currentObject = headObj;                //mostar los objetos
+            Obj *currentObject = headObj;
 
             if(currentObject != NULL){
                 int count = 0;
@@ -18,7 +18,6 @@ void printList(Node *headCat) {
                     currentObject = currentObject -> next;
                     count++;
                 } while (currentObject != headObj);
-                
                 printf("\n");
             } else {
                 printf("\n%s no tiene objetos ligados\n", current->content);

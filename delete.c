@@ -43,11 +43,11 @@ void deleteNode(Node **head, Node **tail) {
                 }
                 break;
             }
-
             current = current -> next;
-        } while (current != *head);
 
+        } while (current != *head);
         printf("\n\tEl nodo ha sido elininado\n\n");
+        
     } else {
         printf("\n\tLa lista esta vacia\n\n");
     }
