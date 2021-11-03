@@ -1,21 +1,21 @@
 #include "cdll.h"
 
 void runMenu(Node *headC, Node *tailC) {
-    int choice;
+  int choice;
 
 	do {
 		printf("1. Insertar nueva categoria\n");
-        printf("2. Eliminar categoria actual\n");
+    printf("2. Eliminar categoria actual\n");
 		printf("3. Insertar nuevo objeto a categoria actal\n");
-        printf("4. Mostrar categorias y objetos\n");
+    printf("4. Mostrar categorias y objetos\n");
 		printf("5. Ir a siguiente categoria\n");
 		printf("6. Ir a categoria anterior\n");
 		printf("7. Eliminar objeto de la categoria actual\n");
-        printf("0. Salir\n");
+    printf("0. Salir\n");
 		printf("\nSu opcion: ");
 		scanf(" %d", &choice);
 
-        switch (choice) {
+      switch (choice) {
 			case 1:
 				printf("\n\n- Insertar categoria en la lista\n");
 				addNode(&headC, &tailC);
@@ -25,7 +25,7 @@ void runMenu(Node *headC, Node *tailC) {
 				deleteNode(&headC, &tailC);
 				break;
 			case 3:
-                printf("\n\n- Insertar objeto\n");
+        printf("\n\n- Insertar objeto\n");
 				addObject(headC);
 				break;
 			case 4:

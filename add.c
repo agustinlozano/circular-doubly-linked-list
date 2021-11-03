@@ -11,12 +11,12 @@ void addNode(Node **head, Node **tail) {
         printf("\n\tAgrega el primer nodo de la lista");
         (*head) = newNode;        
         (*tail) = newNode;
-        doLinksAddCategory(head, tail, newNode);     
+        makeLinksAddCategory(head, tail, newNode);     
     
     //la lista no esta vacia
     } else {
         printf("\n\tAgrega un nodo mas a la lista");    
-        doLinksAddCategory(head, tail, newNode);
+        makeLinksAddCategory(head, tail, newNode);
     }
 
     printf("\n\tExito: categoria agregada\n\n");
@@ -41,7 +41,7 @@ void addObject(Node *headCat) {
         headObj = newObject;
         tailObj = newObject;
 
-        doLinksAddObjects(headObj, tailObj, newObject);
+        makeLinksAddObjects(headObj, tailObj, newObject);
 
         headCat -> obj = headObj;
     
@@ -51,7 +51,7 @@ void addObject(Node *headCat) {
         tailObj = headObj -> prev;
         int prevID = tailObj -> ID; 
 
-        doLinksAddObjects(headObj, tailObj, newObject);
+        makeLinksAddObjects(headObj, tailObj, newObject);
 
         newObject -> ID = prevID + 1;
     }
@@ -59,7 +59,7 @@ void addObject(Node *headCat) {
     printf("\n\tExito: objeto agregado\n\n");
 }
 
-void doLinksAddCategory(Node **head, Node **tail, Node *newNode) {
+void makeLinksAddCategory(Node **head, Node **tail, Node *newNode) {
     (*tail) -> next = newNode;
     newNode -> prev = (*tail);
     (*tail) = newNode;
@@ -67,7 +67,7 @@ void doLinksAddCategory(Node **head, Node **tail, Node *newNode) {
     (*head) -> prev = newNode;
 }
 
-void doLinksAddObjects(Obj *headObj, Obj *tailObj, Obj *newObject) {
+void makeLinksAddObjects(Obj *headObj, Obj *tailObj, Obj *newObject) {
     tailObj -> next = newObject;
     newObject -> prev = tailObj;
     tailObj = newObject;

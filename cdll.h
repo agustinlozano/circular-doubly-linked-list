@@ -30,17 +30,17 @@ void prevCategory(Node **head, Node **tail);
 
 /* add */
 void addNode(Node **head, Node **tail);
-void doLinksAddCategory(Node **head, Node **tail, Node *newNode);
+void makeLinksAddCategory(Node **head, Node **tail, Node *newNode);
 
 void addObject(Node *headCat);
-void doLinksAddObjects(Obj *headObj, Obj *tailObj, Obj *newObject);
+void makeLinksAddObjects(Obj *headObj, Obj *tailObj, Obj *newObject);
 
 /* delete */
 void deleteObject(Node *head);
-Obj * doLinksDeleteObjects(Obj *obj);
+Obj * makeLinksDeleteObjects(Obj *obj);
 
 void deleteNode(Node **head, Node **tail);
-void doLinksDeleteCategory(Node **head, Node **tail);
+void makeLinksDeleteCategory(Node **head, Node **tail);
 
 void updateID(Obj *tail, Obj *current);
 

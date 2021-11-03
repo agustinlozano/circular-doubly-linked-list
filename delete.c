@@ -11,10 +11,10 @@ void deleteNode(Node **head, Node **tail) {
             free(current);
 
         } else if (current == (*head)) {
-            doLinksDeleteCategory(head, tail);
+            makeLinksDeleteCategory(head, tail);
 
         } else if (current == (*tail)) {
-            doLinksDeleteCategory(head, tail);
+            makeLinksDeleteCategory(head, tail);
         }
         
     } else {
@@ -42,7 +42,7 @@ void deleteObject(Node *head) {
 
         if (currentObj == head -> obj) {
             //elimino el nodo y pero tambien tengo que apuntarlo desde la categoria
-            head -> obj = doLinksDeleteObjects(currentObj);
+            head -> obj = makeLinksDeleteObjects(currentObj);
 
             //Ahora actualizo los ID de los objetos
             updateID(currentObj->prev, head->obj);
@@ -51,7 +51,7 @@ void deleteObject(Node *head) {
 
         } else {
             //simplemente borro el nodo
-            doLinksDeleteObjects(currentObj);
+            makeLinksDeleteObjects(currentObj);
 
             //Ahora actualizo los ID de los objetos
             updateID(currentObj->prev, head->obj);
@@ -64,7 +64,7 @@ void deleteObject(Node *head) {
     }
 }
 
-void doLinksDeleteCategory(Node **head, Node **tail) {
+void makeLinksDeleteCategory(Node **head, Node **tail) {
     (*tail) = (*head) -> prev;
     Node *aux = NULL;
     
@@ -79,7 +79,7 @@ void doLinksDeleteCategory(Node **head, Node **tail) {
     (*head) = aux;
 }
 
-Obj * doLinksDeleteObjects(Obj *obj) {
+Obj * makeLinksDeleteObjects(Obj *obj) {
     Obj *aux = NULL;
     
     aux = obj -> prev;
