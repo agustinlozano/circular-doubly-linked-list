@@ -13,7 +13,6 @@ void nextCategory(Node **head, Node **tail) {
     }
 }
 
-//implementar esta ultima
 void prevCategory(Node **head, Node **tail) {
     Node *aux;
     if (*head == NULL) {
