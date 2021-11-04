@@ -120,5 +120,6 @@ void updateID(Obj *tail, Obj *current) {
         int currentID = current -> ID;
         current -> ID = currentID - 1;
         current = current -> next;
-    } while (current != tail->next); //tail->next es el fix 
+    } while (current != tail->next); 
+        //tail->next es el fix 
 }

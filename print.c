@@ -23,6 +23,7 @@ void printList(Node *headCat) {
                     count++;
                 } while (currentObject != headObj);
                 printf("\n");
+                
             } else {
                 printf("\n%s no tiene objetos ligados\n", current->content);
             }
