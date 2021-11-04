@@ -10,10 +10,8 @@ void deleteNode(Node **head, Node **tail) {
             *tail = NULL;
             free(current);
 
-        } else if (current == (*head)) {
-            makeLinksDeleteCategory(head, tail);
-
-        } else if (current == (*tail)) {
+        } else {
+            deleteAllobjects(*head);
             makeLinksDeleteCategory(head, tail);
         }
         
@@ -24,43 +22,69 @@ void deleteNode(Node **head, Node **tail) {
     printf("\nSe ha eliminado el nodo seleccionado\n");
 }
 
+void deleteAllobjects(Node *head) {
+    Obj *current  = NULL;
+
+    if (head != NULL) {
+        current = head -> obj;
+
+        do {
+          current = current -> next;
+          free(current);
+
+        } while (current != (head->obj));
+
+        head -> obj = NULL;
+
+    } else {
+        printf("\nLa categoria no tiene objetos ligados que borrar");
+        printf("\nSe eliminara solo la categoria indicada\n\n");
+    }
+}
+
 void deleteObject(Node *head) {
     int ID;
 
-    if (head != NULL) {
+    if (head != NULL && head -> obj != NULL) {
+        Node *tail = head -> prev;
+        Obj *tailObj = tail -> obj;
         Obj *currentObj = head -> obj;
 
         printf("\nIngrese el ID del objeto ligado a %s: ", head->content);
         scanf(" %d", &ID);
 
-        while ((currentObj->ID) != ID) {
+        //Encontar el objeto ligado al ID ingresado
+        do {
+            if ((currentObj -> ID) == ID) {
+                printf("\nID hallado, el object es: %s\tID: %d\n\n", 
+                      currentObj->content, currentObj->ID);
+
+                if (currentObj == head -> obj) {
+                    //elimino el nodo y pero tambien tengo que apuntarlo desde la categoria
+                    head -> obj = makeLinksDeleteObjects(currentObj);
+
+                    //Ahora actualizo los ID de los objetos
+                    updateID(head->obj->prev, head->obj);
+
+                    free(currentObj);
+
+                } else {
+                    //simplemente borro el nodo
+                    makeLinksDeleteObjects(currentObj);
+
+                    //Ahora actualizo los ID de los objetos
+                    updateID(head->obj->prev, currentObj);
+
+                    free(currentObj);
+                }
+                break;
+            }
             currentObj = currentObj -> next;
-        }
 
-        printf("\nEl object es: %s\tID: %d\n\n", 
-            currentObj->content, currentObj->ID);
-
-        if (currentObj == head -> obj) {
-            //elimino el nodo y pero tambien tengo que apuntarlo desde la categoria
-            head -> obj = makeLinksDeleteObjects(currentObj);
-
-            //Ahora actualizo los ID de los objetos
-            updateID(currentObj->prev, head->obj);
-
-            free(currentObj);
-
-        } else {
-            //simplemente borro el nodo
-            makeLinksDeleteObjects(currentObj);
-
-            //Ahora actualizo los ID de los objetos
-            updateID(currentObj->prev, head->obj);
-
-            free(currentObj);
-        }
+        } while ((currentObj->ID) != (tailObj -> ID));
 
     } else {
-        printf("\n\tLa lista esta vacia\n\n");
+        printf("\n\tLa lista esta vacia o bien no tiene ningun objeto ligado a ella\n\n");
     }
 }
 
@@ -96,5 +120,5 @@ void updateID(Obj *tail, Obj *current) {
         int currentID = current -> ID;
         current -> ID = currentID - 1;
         current = current -> next;
-    } while (current != tail);  
+    } while (current != tail->next); //tail->next es el fix 
 }
