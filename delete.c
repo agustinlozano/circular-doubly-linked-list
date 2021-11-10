@@ -6,6 +6,7 @@ void deleteNode(Node **head, Node **tail) {
     if (current != NULL) {
         if (current == (*head) && current == (*tail)) {
             printf("\n\tSe elemininara el unico elemento existente\n\n");
+            //deleteAllobjects(*head); ??????????? sino no borra objetos ligados
             *head = NULL;
             *tail = NULL;
             free(current);
