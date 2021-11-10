@@ -25,9 +25,9 @@ void deleteNode(Node **head, Node **tail) {
 
 void deleteAllobjects(Node *head) {
     Obj *current  = NULL;
-
-    if (head != NULL) {
-        current = head -> obj;
+    
+    current = head -> obj;
+    if (current != NULL) {
 
         do {
           current = current -> next;
